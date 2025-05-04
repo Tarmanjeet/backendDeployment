@@ -3,12 +3,14 @@ const dotenv=require("dotenv").config();
 const bodyParser=require("body-parser");
 const userRouter=require("./router/user.router");
 const productRouter=require("./router/product.router");
+const orderRouter=require("./router/order.router");
 const mongoose=require("./db/connection");
 
 const app=express();
 app.use(bodyParser.json());
 app.use("/user",userRouter);
 app.use("/product",productRouter);
+app.use("/order",orderRouter);
 app.use("/",(req,res)=>{
     res.status(200).send("Application is running");
 })
